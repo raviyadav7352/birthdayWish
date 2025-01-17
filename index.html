@@ -83,7 +83,7 @@
     <div style="background-image:linear-gradient(62deg, #cddc39, #d5d5d680);" class="card-body">
       <h5 class="card-title">Marry Christmas</h5>
       <p class="card-text" style="font-family:cursive ;">I wish for all of your wishes to come true. Happy Christmas!</p>
-      <button type="button" onclick="playmusic()" class="btn m-auto w-100 rounded-pill btn-success">wishes</button>
+      <button type="button" onclick="playmusic()" id="autoClickButton" class="btn m-auto w-100 rounded-pill btn-success">wishes</button>
 
      <audio id="musicplayer" controls>
         <source src="images/back1.jpg" type="audio/ogg">
@@ -101,13 +101,8 @@
 
     function playmusic() {
       let musicplayer = document.getElementById("musicplayer");
-       musicplayer.toggleAttribute("purpose")
-      if(musicplayer.hasAttribute("purpose")){
       musicplayer.play();
-      }
     }
-    
-  }
 </script>
 
 </html>
