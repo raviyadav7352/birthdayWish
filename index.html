@@ -85,7 +85,7 @@
       <p class="card-text" style="font-family:cursive ;">I wish for all of your wishes to come true. Happy Christmas!</p>
       <button type="button" onclick="playmusic()" class="btn m-auto w-100 rounded-pill btn-success">wishes</button>
 
-      <audio id="musicplayer" autoplay controls>
+      <audio id="musicplayer" controls muted autoplay>
         <source src="images/back1.jpg" type="audio/ogg">
         <source src="images/Christmas.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -94,10 +94,14 @@
   </div>
 </body>
 <script>
-   document.addEventListener("DOMContentLoaded", function() {
-    let musicplayer = document.getElementById("musicplayer");
-    musicplayer.play();
-  });
+  document.addEventListener("DOMContentLoaded", function() {
+      let musicplayer = document.getElementById("musicplayer");
+      musicplayer.play().then(() => {
+        musicplayer.muted = false;
+      }).catch((error) => {
+        console.log("Autoplay was prevented:", error);
+      });
+    });
   function playmusic() {
     let musicplayer = document.getElementById("musicplayer");
     musicplayer.toggleAttribute("purpose")
